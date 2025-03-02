@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"kishyassin/Livra-Maroc/model"
 	"log"
 	"os"
 
@@ -56,6 +57,10 @@ func InitDatabase() (*gorm.DB, error) {
 
 func runMigrations(db *gorm.DB) error {
 	return db.AutoMigrate(
-
+		&model.Client{},
+		&model.Command{},
+		&model.CommandLine{},
+		&model.User{},
+		&model.Product{},
 	)
 }
